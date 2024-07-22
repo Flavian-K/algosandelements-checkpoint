@@ -1,0 +1,25 @@
+// define a function that takes a sentence as an argument
+FUNCTION analyzeSentence(sentence) 
+// initialize counters to keep track and hold values of the different categories
+    INITIALIZE length to 0
+    INITIALIZE words to 0
+    INITIALIZE vowels to 0
+    // a variable of a string vowels to be used for checking if a character is a vowel
+    INITIALIZE vowelList to "aeiouAEIOU"
+    // loop to go through each character in the given sentence 
+    FOR EACH character IN sentence
+    // each chara. in the sentence increases the length variable by 1
+        INCREMENT length by 1
+        // If the current character is found in vowelList, increase to the vowels counter by 1.
+        IF character IS IN vowelList
+            INCREMENT vowels by 1
+        // If the current character is a space and the previous character was not a space, it indicates the end of a word, so increase the words counter by 1.
+        IF character IS " " AND previous character IS NOT " "
+            INCREMENT words by 1
+    // last word: After the loop, if the sentence is not empty and the last character is not a space, increase the words counter to account for the last word in the sentence.
+    // necessary to ensure the last word is counted because the loop only increases the word counter when a space is encountered.
+    IF length > 0 AND last character IS NOT " "
+        INCREMENT words by 1
+    // Return the final counts for length, words, and vowels as the result of the function.
+    RETURN length, words, vowels
+END FUNCTION
